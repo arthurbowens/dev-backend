@@ -1,17 +1,34 @@
 # MultiSearch - Backend
 
-API REST em Spring Boot para busca nos dados do ERP.
+API REST Spring Boot do MultiSearch (desafio Full Stack).
+
+Lê os JSONs em `src/main/resources/data`, busca em todas as tabelas, normaliza os resultados e devolve agrupados por categoria.
+
+## Stack
+
+- Java 21
+- Spring Boot 3
+- Jackson
+
+## Dados
+
+| Arquivo | Tabela |
+|---|---|
+| `sales_orders.json` | Pedidos de Venda |
+| `purchase_orders.json` | Pedidos de Compra |
+| `materials.json` | Produtos |
+| `equipments.json` | Equipamentos |
+| `workforce.json` | Mão de obra |
 
 ## Como rodar
 
-1. Use **JDK 21** no projeto
-2. Rode `MultisearchApplication` no IntelliJ
-3. A API sobe em `http://localhost:8080`
+1. Use JDK 21
+2. Rode `MultisearchApplication`
+3. API em `http://localhost:8080`
 
 ## Endpoint
 
 ```
 GET /api/busca?texto=Mesa%20Ret
 ```
-
-Resposta agrupada por categoria: pedidos de venda, pedidos de compra, produtos, equipamentos e mão de obra.
+# dev-backend
