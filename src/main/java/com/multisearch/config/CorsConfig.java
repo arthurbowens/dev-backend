@@ -1,5 +1,6 @@
 package com.multisearch.config;
 
+import org.springframework.beans.factory.annotation.Value;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.web.servlet.config.annotation.CorsRegistry;
 import org.springframework.web.servlet.config.annotation.WebMvcConfigurer;
@@ -7,10 +8,15 @@ import org.springframework.web.servlet.config.annotation.WebMvcConfigurer;
 @Configuration
 public class CorsConfig implements WebMvcConfigurer {
 
+    @Value("${app.cors.origins}")
+    private String origemCors;
+
     @Override
     public void addCorsMappings(CorsRegistry registry) {
+        String[] origens = origemCors.split("\\s*,\\s*");
+
         registry.addMapping("/api/**")
-                .allowedOrigins("http://localhost:4200")
+                .allowedOrigins(origens)
                 .allowedMethods("GET");
     }
 }
